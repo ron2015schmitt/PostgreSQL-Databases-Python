@@ -1,16 +1,38 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+# write to file
+# "w" - overwrite
+# "a" - append
+
+f=open("test.txt","w")
+
+f.write("Hello world in a file!")
+f.close()
+
+f=open("ledger.txt","w")
+f.write("1 Joe 350\n")
+f.write("2 Rob 3500\n")
+f.write("3 Cindy 450\n")
+f.close()
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# read from file
+# "r"
+f=open("ledger.txt","r")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+while True:
+    line=f.readline()
+    split = line.split()
+    try:
+        index = split[0]
+        name = split[1]
+        balance = split[2]
+        print("index=",index)
+        print("name=", name)
+        print("balance=", balance)
+    except:
+        break
+f.close()
+
+
